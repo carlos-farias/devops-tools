@@ -29,6 +29,7 @@ jobs:
         ls -la
         echo "ls 2"
         ls CloudRun/check-db/Dockerfile
+        Dockerfile
         echo "cd"
         cd CloudRun/check-db
         echo "ls 3"

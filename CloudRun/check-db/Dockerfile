@@ -39,5 +39,7 @@ EOF
 
 WORKDIR /app
 
+#
+
 # Comando por defecto para ejecutar el script Python
 CMD ["python", "query_db.py"]

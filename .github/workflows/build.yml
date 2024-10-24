@@ -26,5 +26,6 @@ jobs:
       run: |
         gcloud auth configure-docker gcr.io
         cd CloudRun/check-db
+        CloudRun/check-db/Dockerfile
         docker build -t gcr.io/foh-procesador-qas/financial/check-db-cloud-sql-proxy:v1 .
         docker push gcr.io/foh-procesador-qas/financial/check-db-cloud-sql-proxy:v1

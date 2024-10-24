@@ -1,11 +1,11 @@
 FROM python:3.11-slim
 
 # Instalación de dependencias necesarias
-RUN pip install mysql-connector-python
+RUN pip install psycopg2-binary
 
 # Creación del script Python que hará la query
 COPY <<EOF /app/query_db.py
-import mysql.connector
+import psycopg2
 import os
 
 def main():
@@ -15,13 +15,15 @@ def main():
         db_password = os.getenv('DB_PASSWORD')
         db_name = os.getenv('DB_NAME')
         db_host = os.getenv('DB_HOST', '127.0.0.1')
+        db_port = os.getenv('DB_PORT', '5432')
 
         # Conexión a la base de datos
-        connection = mysql.connector.connect(
+        connection = psycopg2.connect(
             user=db_user,
             password=db_password,
             host=db_host,
-            database=db_name
+            port=db_port,
+            dbname=db_name
         )
         cursor = connection.cursor()
         cursor.execute("SELECT 1;")
@@ -30,7 +32,7 @@ def main():
 
         cursor.close()
         connection.close()
-    except mysql.connector.Error as err:
+    except psycopg2.Error as err:
         print(f"Error: {err}")
 
 if __name__ == "__main__":
@@ -38,8 +40,6 @@ if __name__ == "__main__":
 EOF
 
 WORKDIR /app
-
-#
 
 # Comando por defecto para ejecutar el script Python
 CMD ["python", "query_db.py"]

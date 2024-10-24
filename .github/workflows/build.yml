@@ -25,7 +25,13 @@ jobs:
         GOOGLE_PROJECT: foh-procesador-qas
       run: |
         gcloud auth configure-docker gcr.io
+        echo "ls"
+        ls -la
+        echo "ls 2"
+        ls CloudRun/check-db/Dockerfile
+        echo "cd"
         cd CloudRun/check-db
-        CloudRun/check-db/Dockerfile
+        echo "ls 3"
+        ls -la
         docker build -t gcr.io/foh-procesador-qas/financial/check-db-cloud-sql-proxy:v1 .
         docker push gcr.io/foh-procesador-qas/financial/check-db-cloud-sql-proxy:v1

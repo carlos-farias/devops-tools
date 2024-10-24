@@ -1,0 +1,29 @@
+name: Desarrollo - Build & Push MonitorDB
+
+on:
+  push:
+    paths:
+      - 'CloudRun/check-db/Dockerfile'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: code checkout
+      uses: actions/checkout@v2
+
+    - name: install the gcloud cli
+      uses: google-github-actions/setup-gcloud@v0
+      with:
+        project_id: foh-procesador-qas
+        service_account_key: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS_QAS }}
+        export_default_credentials: true
+
+    - name: build and push the docker image
+      env:
+        GOOGLE_PROJECT: foh-procesador-qas
+      run: |
+        gcloud auth configure-docker gcr.io
+        docker build -t gcr.io/foh-procesador-qas/financial/check-db-cloud-sql-proxy:v1 .
+        docker push gcr.io/foh-procesador-qas/financial/check-db-cloud-sql-proxy:v1

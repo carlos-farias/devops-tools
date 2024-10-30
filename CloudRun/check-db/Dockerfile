@@ -35,7 +35,7 @@ EOF
 EXPOSE 5432
 
 # Script de entrada para inicializar el Cloud SQL Proxy
-COPY start_proxy.sh /usr/local/bin/start_proxy.sh
+COPY /CloudRun/check-db/start_proxy.sh /usr/local/bin/start_proxy.sh
 RUN chmod +x /usr/local/bin/start_proxy.sh
 
 CMD ["/usr/local/bin/start_proxy.sh"]

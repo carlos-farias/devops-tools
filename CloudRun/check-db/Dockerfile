@@ -40,8 +40,11 @@ cloud_sql_proxy -instances=foh-procesador-qas:us-central1:fohct06c=tcp:5432 &
 sleep 5
 
 echo "CloudSQL Proxy operativo "
+DB_USER=mpago
+DB_PASSWORD=C93XHxN5X6UcpgJz
+DB_NAME=bbr-processor
 
-echo "$DB_PASSWORD-$DB_USER-$DB_NAME"
+echo "$DB_PASSWORD - $DB_USER - $DB_NAME"
 
 # Realizamos una consulta a la base de datos para verificar la conexión
 export PGPASSWORD=$DB_PASSWORD

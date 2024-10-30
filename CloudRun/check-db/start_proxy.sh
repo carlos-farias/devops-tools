@@ -1,10 +1,4 @@
 #!/bin/bash
-
-        db_user = os.getenv('DB_USER')
-        db_password = os.getenv('DB_PASSWORD')
-        db_name = os.getenv('DB_NAME')
-        db_host = os.getenv('DB_HOST', 'localhost')
-        db_port = os.getenv('DB_PORT', '5432')
         
 if [ ! -f "$GOOGLE_APPLICATION_CREDENTIALS" ]; then
   echo "El archivo de credenciales JSON no está presente en /cloudsql."

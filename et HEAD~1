@@ -1,0 +1,77 @@
+[33mcommit b79d204b94a1b73d29d0178bbfe9c644cc3509b1[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Author: Carlos Farías <carlos@eflipa.com>
+Date:   Wed Oct 30 17:45:25 2024 -0300
+
+    ahora si
+
+[33mcommit 0490772c6cf6a7677cb1c512d9285d1992f32e00[m
+Author: Carlos Farías <carlos@eflipa.com>
+Date:   Wed Oct 30 17:41:43 2024 -0300
+
+    creanueva imagen
+
+[33mcommit 3e7403fafb045a44449903740ebdddd6713a67fb[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Carlos Farías <carlos@eflipa.com>
+Date:   Wed Oct 30 17:19:53 2024 -0300
+
+    cambio a localhost
+
+[33mcommit 8133bbc8245acff398fa75ddaba5e33b1ec42dc0[m
+Author: Carlos Farías <carlos@eflipa.com>
+Date:   Thu Oct 24 18:57:13 2024 -0300
+
+    cambio check para postgresql
+
+[33mcommit ebf9b58c9afd5d5cb92e6d3cbe2916c86daeaf1a[m
+Author: Carlos Farías <carlos@eflipa.com>
+Date:   Thu Oct 24 17:37:13 2024 -0300
+
+    error en build
+
+[33mcommit 3586ea9acb07bbcdbc05bf1d6377e7152be1a7c4[m
+Author: Carlos Farías <carlos@eflipa.com>
+Date:   Thu Oct 24 17:34:07 2024 -0300
+
+    cambios para forzar compilar
+
+[33mcommit 309c55f3bbb95427a9bfa7391d35c310ea9cb386[m
+Author: Carlos Farías <carlos@eflipa.com>
+Date:   Thu Oct 24 17:31:26 2024 -0300
+
+    debug de compilación
+
+[33mcommit c9eedff9b60789f58328d2a03c29fe1dfe2607e5[m
+Author: Carlos Farías <carlos@eflipa.com>
+Date:   Thu Oct 24 17:29:24 2024 -0300
+
+    palos de ciego
+
+[33mcommit fc26f67d56b35f4fcc83b45b8f161a2e1d1f3a66[m
+Author: Carlos Farías <carlos@eflipa.com>
+Date:   Thu Oct 24 17:25:10 2024 -0300
+
+    agrego un cd a la carpeta de trabajo
+
+[33mcommit 85bd44a3e030da684561bfe03c643b19c31d58b2[m
+Author: Carlos Farías <carlos@eflipa.com>
+Date:   Thu Oct 24 17:20:05 2024 -0300
+
+    Compila
+
+[33mcommit 2a3967edb4e5c4b0810aba002a057143830d89cb[m
+Author: Carlos Farías <carlos@eflipa.com>
+Date:   Thu Oct 24 17:18:49 2024 -0300
+
+    A compilar con build actions
+
+[33mcommit 0c93aa77d0021857ffe066e7f9cc93701f57daa4[m
+Author: Carlos Farías <carlos@eflipa.com>
+Date:   Thu Oct 24 16:54:25 2024 -0300
+
+    Creo dockefile y script para subirlo a FoH
+
+[33mcommit 25606a044382bc24425a2b1606a8a0138815edd8[m
+Author: Carlos Farías <22660771+carlos-farias@users.noreply.github.com>
+Date:   Thu Oct 24 14:23:56 2024 -0300
+
+    Initial commit

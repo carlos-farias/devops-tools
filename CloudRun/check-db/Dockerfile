@@ -14,7 +14,7 @@ def main():
         db_user = os.getenv('DB_USER')
         db_password = os.getenv('DB_PASSWORD')
         db_name = os.getenv('DB_NAME')
-        db_host = os.getenv('DB_HOST', '127.0.0.1')
+        db_host = os.getenv('DB_HOST', 'localhost')
         db_port = os.getenv('DB_PORT', '5432')
 
         # Conexión a la base de datos

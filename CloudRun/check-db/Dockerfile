@@ -29,7 +29,7 @@ COPY <<EOF /usr/local/bin/start_proxy.sh
 echo "Prueba iniciada v3"
 
 if [ ! -f "$GOOGLE_APPLICATION_CREDENTIALS" ]; then
-  echo "El archivo de credenciales JSON no está presente en /cloudsql."
+  echo "El archivo de credenciales JSON no está presente en ${GOOGLE_APPLICATION_CREDENTIALS}"
   exit 1
 fi
 
@@ -39,8 +39,13 @@ cloud_sql_proxy -instances=foh-procesador-qas:us-central1:fohct06c=tcp:5432 &
 # Esperamos a que el proxy esté listo
 sleep 5
 
+echo "CloudSQL Proxy operativo "
+
+echo "${DB_PASSWORD} psql -h localhost -p 5432 -U ${DB_USER} -d ${DB_NAME} -c "SELECT NOW();"
+
 # Realizamos una consulta a la base de datos para verificar la conexión
-PGPASSWORD=DB_PASSWORD psql -h localhost -p 5432 -U $DB_USER -d $DB_NAME -c "SELECT NOW();"
+export PGPASSWORD=${DB_PASSWORD}
+psql -h localhost -p 5432 -U ${DB_USER} -d ${DB_NAME} -c "SELECT NOW();"
 
 EOF
 

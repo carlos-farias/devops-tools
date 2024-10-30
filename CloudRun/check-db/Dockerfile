@@ -15,19 +15,7 @@ WORKDIR /cloudsql
 
 # Añadimos la variable de entorno para la key del service account (archivo json debe ser montado)
 ENV GOOGLE_APPLICATION_CREDENTIALS=/cloudsql/service_account.json
-RUN echo '{
- "type": "service_account",
- "project_id": "d-irmabo-tesoreria",
- "private_key_id": "ce94cf462dcf740f39fc8f14275e88e4436b6429",
- "private_key": "-----BEGIN PRIVATE KEY-----\\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQChWVXIHyiz75E2\\nOa0/gDxbGzQYR8c/NnzKVf9mwmbbS8kq76bA5IbciD7lXK4dE0Hyf0LSka3tmTmp\\n...",
- "client_email": "db-sql-sa@d-irmabo-tesoreria.iam.gserviceaccount.com",
- "client_id": "108909718819450668423",
- "auth_uri": "https://accounts.google.com/o/oauth2/auth",
- "token_uri": "https://oauth2.googleapis.com/token",
- "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
- "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/db-sql-sa%40d-irmabo-tesoreria.iam.gserviceaccount.com",
- "universe_domain": "googleapis.com"
-}' > /cloudsql/service_account.json
+RUN echo '{  "type": "service_account", "project_id": "d-irmabo-tesoreria",  "private_key_id": "ce94cf462dcf740f39fc8f14275e88e4436b6429",  "private_key": "-----BEGIN PRIVATE KEY-----\\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQChWVXIHyiz75E2\\nOa0/gDxbGzQYR8c/NnzKVf9mwmbbS8kq76bA5IbciD7lXK4dE0Hyf0LSka3tmTmp\\n...","client_email": "db-sql-sa@d-irmabo-tesoreria.iam.gserviceaccount.com",  "client_id": "108909718819450668423",  "auth_uri": "https://accounts.google.com/o/oauth2/auth",  "token_uri": "https://oauth2.googleapis.com/token","auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/db-sql-sa%40d-irmabo-tesoreria.iam.gserviceaccount.com","universe_domain": "googleapis.com" }' > /cloudsql/service_account.json
 
 
 # El puerto al cual el Cloud SQL Proxy se conectará

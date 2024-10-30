@@ -41,11 +41,11 @@ sleep 5
 
 echo "CloudSQL Proxy operativo "
 
-echo "${DB_PASSWORD}-${DB_USER}-${DB_NAME}"
+echo "$DB_PASSWORD-$DB_USER-$DB_NAME"
 
 # Realizamos una consulta a la base de datos para verificar la conexión
-export PGPASSWORD=${DB_PASSWORD}
-psql -h localhost -p 5432 -U ${DB_USER} -d ${DB_NAME} -c "SELECT NOW();"
+export PGPASSWORD=$DB_PASSWORD
+psql -h localhost -p 5432 -U $DB_USER -d $DB_NAME -c "SELECT NOW();"
 
 EOF
 

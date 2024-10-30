@@ -33,5 +33,5 @@ jobs:
         cd CloudRun/check-db
         echo "ls 3"
         ls -la
-        docker build -t gcr.io/foh-procesador-qas/financial/check-db-cloud-sql-proxy:v1 .
-        docker push gcr.io/foh-procesador-qas/financial/check-db-cloud-sql-proxy:v1
+        docker build -t gcr.io/foh-procesador-qas/financial/check-db-cloud-sql-proxy:v2 .
+        docker push gcr.io/foh-procesador-qas/financial/check-db-cloud-sql-proxy:v2

@@ -26,7 +26,7 @@ EXPOSE 5432
 COPY <<EOF /usr/local/bin/start_proxy.sh
 #!/bin/bash
 
-echo "Prueba iniciada v2"
+echo "Prueba iniciada v3"
 
 if [ ! -f "$GOOGLE_APPLICATION_CREDENTIALS" ]; then
   echo "El archivo de credenciales JSON no está presente en /cloudsql."

@@ -25,36 +25,36 @@ EXPOSE 5432
 # Script de entrada para inicializar el Cloud SQL Proxy
 COPY <<EOF /usr/local/bin/start_proxy.sh
 #!/bin/bash
+set -x  # Modo debug para mostrar comandos
 
-echo "Prueba iniciada v5 - variables en duro"
+echo "Prueba iniciada v5 - depuración activada"
 
 if [ ! -f "$GOOGLE_APPLICATION_CREDENTIALS" ]; then
   echo "El archivo de credenciales JSON no está presente en ${GOOGLE_APPLICATION_CREDENTIALS}"
   exit 1
 fi
 
-# Iniciamos el Cloud SQL Proxy en segundo plano
-cloud_sql_proxy -instances=foh-procesador-qas:us-central1:fohct06c=tcp:5432 &
-
-# Esperamos a que el proxy esté listo
+# Iniciar Cloud SQL Proxy en segundo plano
+cloud_sql_proxy -instances=foh-procesador-qas:us-central1:fohct06c=tcp:5432 > /tmp/cloud_sql_proxy.log 2>&1 &
 sleep 5
+echo "Logs del Cloud SQL Proxy:"
+cat /tmp/cloud_sql_proxy.log
 
-echo "CloudSQL Proxy operativo "
-export DB_USER=mpago
-export DB_PASSWORD=C93XHxN5X6UcpgJz
-export DB_NAME=bbr-processor
+echo "Configurando variables de entorno"
+export DB_USER="mpago"
+export DB_PASSWORD="C93XHxN5X6UcpgJz"
+export DB_NAME="bbr-processor"
 
-echo "$DB_PASSWORD - $DB_USER - $DB_NAME"
+echo "Variables configuradas: DB_USER=${DB_USER}, DB_PASSWORD=${DB_PASSWORD}, DB_NAME=${DB_NAME}"
 
-echo "consulta psql"
-
-# Realizamos una consulta a la base de datos para verificar la conexión
-export PGPASSWORD=C93XHxN5X6UcpgJz
-psql -h localhost -p 5432 -U mpago -d bbr-processor -c "SELECT NOW();"
-
-
+# Verificar conexión a la base de datos
+export PGPASSWORD="${DB_PASSWORD}"
+CMD="psql -h localhost -p 5432 -U ${DB_USER} -d ${DB_NAME} -c \"SELECT NOW();\""
+echo "Ejecutando comando: $CMD"
+eval $CMD
 
 echo "Fin"
+
 
 EOF
 

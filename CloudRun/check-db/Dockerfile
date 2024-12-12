@@ -49,7 +49,7 @@ echo "Variables configuradas: DB_USER=${DB_USER}, DB_PASSWORD=${DB_PASSWORD}, DB
 
 # Verificar conexión a la base de datos
 export PGPASSWORD="${DB_PASSWORD}"
-CMD="psql -h localhost -p 5432 -U ${DB_USER} -d ${DB_NAME} -c \"SELECT NOW();\""
+CMD="psql -h localhost -p 5432 -U ${DB_USER} -d ${DB_NAME} -c 'SELECT NOW();'"
 echo "Ejecutando comando: $CMD"
 eval $CMD
 

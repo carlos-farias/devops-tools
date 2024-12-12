@@ -53,6 +53,22 @@ CMD="psql -h localhost -p 5432 -U ${DB_USER} -d ${DB_NAME} -c 'SELECT NOW();'"
 echo "Ejecutando comando: $CMD"
 eval $CMD
 
+psql -h localhost -p 5432 -U ${DB_USER} -d ${DB_NAME} -t -c "SELECT NOW();"
+# Suponiendo que ya tienes DB_USER, DB_PASSWORD, DB_NAME configurados
+export PGPASSWORD="${DB_PASSWORD}"
+
+# Ejecutar la consulta y guardar el resultado en una variable
+RESULT=$(psql -h localhost -p 5432 -U "${DB_USER}" -d "${DB_NAME}" -t -A -c "SELECT NOW();" 2>&1)
+
+echo "Resultado de la consulta: ${RESULT}"
+
+# Verificar si el resultado está vacío
+if [ -z "${RESULT}" ]; then
+    echo "La consulta no devolvió resultado o falló."
+else
+    echo "La consulta devolvió: ${RESULT}"
+fi
+
 echo "Fin"
 
 

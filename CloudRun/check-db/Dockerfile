@@ -71,8 +71,6 @@ fi
 
 echo "Fin"
 
-echo "Logs del Cloud SQL Proxy:"
-cat /tmp/cloud_sql_proxy.log
 
 EOF
 

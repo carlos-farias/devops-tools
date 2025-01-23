@@ -36,7 +36,7 @@ fi
 
 # Iniciar Cloud SQL Proxy en segundo plano
 cloud_sql_proxy -instances=foh-procesador-qas:us-central1:fohct06c=tcp:5432 -ip_address_types=PRIVATE > /tmp/cloud_sql_proxy.log 2>&1 &
-sleep 5
+sleep 10
 echo "Logs del Cloud SQL Proxy:"
 cat /tmp/cloud_sql_proxy.log
 
@@ -71,6 +71,8 @@ fi
 
 echo "Fin"
 
+echo "Logs del Cloud SQL Proxy:"
+cat /tmp/cloud_sql_proxy.log
 
 EOF
 

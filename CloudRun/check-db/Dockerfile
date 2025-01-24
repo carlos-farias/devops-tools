@@ -5,9 +5,9 @@ RUN apt-get update && apt-get install -y \
     curl \
     python3 \
     postgresql-client \
-    && curl -o cloud_sql_proxy https://dl.google.com/cloudsql/cloud_sql_proxy.linux.amd64 \
-    && chmod +x cloud_sql_proxy \
-    && mv cloud_sql_proxy /usr/local/bin/
+    && curl -o cloud-sql-proxy https://storage.googleapis.com/cloud-sql-connectors/cloud-sql-proxy/v2.14.3/cloud-sql-proxy.linux.amd64 \
+    && chmod +x cloud-sql-proxy \
+    && mv cloud-sql-proxy /usr/local/bin/
 
 # Creamos un directorio para almacenar el JSON de la key de la service account
 RUN mkdir -p /cloudsql
@@ -35,7 +35,13 @@ if [ ! -f "$GOOGLE_APPLICATION_CREDENTIALS" ]; then
 fi
 
 # Iniciar Cloud SQL Proxy en segundo plano
-cloud_sql_proxy -instances=foh-procesador-qas:us-central1:fohct06c=tcp:5432 -ip_address_types=PRIVATE &
+###V1 cloud_sql_proxy -instances=foh-procesador-qas:us-central1:fohct06c=tcp:5432 -ip_address_types=PRIVATE &
+## V2
+export CSQL_PROXY_INSTANCE_CONNECTION_NAME_0="foh-procesador-qas:us-central1:fohct06c?port=5432"
+export CSQL_PROXY_AUTO_IAM_AUTHN=true
+cloud-sql-proxy
+
+
 sleep 10
 echo "Logs del Cloud SQL Proxy:"
 #cat /tmp/cloud_sql_proxy.log

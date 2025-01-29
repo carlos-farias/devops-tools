@@ -39,7 +39,7 @@ fi
 ## V2
 export CSQL_PROXY_INSTANCE_CONNECTION_NAME_0="foh-procesador-qas:us-central1:fohct06c?port=5432"
 export CSQL_PROXY_AUTO_IAM_AUTHN=true
-cloud-sql-proxy &
+cloud-sql-proxy --private-ip &
 
 
 sleep 10

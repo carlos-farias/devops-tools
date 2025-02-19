@@ -53,7 +53,7 @@ CMD="psql -h localhost -p 5432 -U ${DB_USER} -d ${DB_NAME} -c 'SELECT NOW();'"
 echo "Executing command: $CMD"
 eval $CMD
 
-psql -h localhost -p 5432 -U ${DB_USER} -d ${DB_NAME} -t -c "SELECT NOW();"
+PGPASSWORD=C93XHxN5X6UcpgJz psql -h localhost -p 5432 -U mpago -d bbr-processor -t -c "SELECT NOW();"
 
 # Execute the query and store the result in a variable
 RESULT=$(psql -h localhost -p 5432 -U "${DB_USER}" -d "${DB_NAME}" -t -A -c "SELECT NOW();" 2>&1)
